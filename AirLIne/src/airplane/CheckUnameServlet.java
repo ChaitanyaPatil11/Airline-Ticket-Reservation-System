@@ -17,9 +17,7 @@ import javax.servlet.http.HttpSession;
 
 
 
-/**
- * Servlet implementation class CheckUnameServlet
- */
+
 
 @WebServlet("/CheckUnameServlet")
 public class CheckUnameServlet extends HttpServlet {
