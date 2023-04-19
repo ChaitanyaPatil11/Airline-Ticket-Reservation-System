@@ -34,9 +34,9 @@ public class NewPasswordServlet extends HttpServlet {
 			Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/Airline", "root", "Chaitu");
 			
 			String fname= request.getParameter("forupdateuname");
-			String sname= request.getParameter("forupdateemail");//first password
-			String tname= request.getParameter("forupdatecheckemail");//second password
-			//check first and second password
+			String sname= request.getParameter("forupdateemail");
+			String tname= request.getParameter("forupdatecheckemail");
+			
 			if(sname.equals(tname)) {
 				
 			}else {
