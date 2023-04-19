@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/LoginServlet") //@WebServlet annotation is used to map the servlet with the specified name.
+@WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -28,10 +28,7 @@ public class LoginServlet extends HttpServlet {
 	
 		try {
 			PrintWriter out=response.getWriter();
-			Class.forName("com.mysql.cj.jdbc.Driver");//1) JDBC-ODBC bridge driver
-			                                           //2) Native-API driver (partially java driver)
-		                                                //3) Network Protocol driver (fully java driver)
-		                                                //4) Thin driver (fully java driver)
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/Airline","root","Chaitu");
 			
 			
@@ -45,16 +42,16 @@ public class LoginServlet extends HttpServlet {
 			
 			if(rs.next())
 			{
-				RequestDispatcher rd=request.getRequestDispatcher("BookingMainPage.jsp");// getRequestDispatcher() method of ServletRequest interface returns the object of RequestDispatcher 
+				RequestDispatcher rd=request.getRequestDispatcher("BookingMainPage.jsp");
 				rd.forward(request, response);
 				request.getRequestDispatcher("BookingServlet").include(request, response);
 			}
 			else 
 			{
-				Messege m = new Messege("Username/Password is Invalid...!!!", "error" ,"danger");//message.class
+				Messege m = new Messege("Username/Password is Invalid...!!!", "error" ,"danger");
 				HttpSession s = request.getSession();
-				s.setAttribute("msg", m);//key and value
-				response.sendRedirect("LoginMainPage.jsp");// redirect to itself page
+				s.setAttribute("msg", m);
+				response.sendRedirect("LoginMainPage.jsp");
 				
 			}
 			
