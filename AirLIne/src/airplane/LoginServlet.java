@@ -44,7 +44,7 @@ public class LoginServlet extends HttpServlet {
 			{
 				RequestDispatcher rd=request.getRequestDispatcher("BookingMainPage.jsp");
 				rd.forward(request, response);
-				request.getRequestDispatcher("BookingServlet").include(request, response);
+				
 			}
 			else 
 			{
